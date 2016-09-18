@@ -1,0 +1,29 @@
+﻿{ 
+  "list":[
+    {
+      "title": "1название",
+      "picture": "http://jsonparsing.parseapp.com/jsonData/images/avengers.jpg",
+      "desc": "1описание, с тегами",
+      "length": "01:01:01",
+      "dt": "YYYY-MM-DD",
+      "video": "1полная ссылка с http"
+    },
+    {
+      "title": "2название",
+      "picture": "http://jsonparsing.parseapp.com/jsonData/images/interstellar.jpg",
+      "desc": "2описание, с тегами",
+      "length": "02:02:02",
+      "dt": "YYYY-MM-DD",
+      "video": "2полная ссылка с http"
+    },
+    {
+      "title": "3название",
+      "picture": "http://jsonparsing.parseapp.com/jsonData/images/four.jpg",
+      "desc": "3описание, с тегами",
+      "length": "03:03:03",
+      "dt": "YYYY-MM-DD",
+      "video": "3полная ссылка с http"
+    }	
+  ]
+}
+

@@ -1,0 +1,52 @@
+﻿{ 
+  "list":[
+    {
+      "title": "1название",
+      "аuthor": "1автор",
+      "anons": "1текст анонса книги",
+      "picture": "http://jsonparsing.parseapp.com/jsonData/images/batman.jpg",
+      "files": [
+        {
+          "type": "pdf",
+          "url": "11http://...."
+        },
+   	    { 
+          "type": "epub",
+          "url": "12http://...."
+        }
+      ]
+    },
+    {
+      "title": "2название",
+      "аuthor": "2автор",
+      "anons": "2текст анонса книги",
+      "picture": "http://jsonparsing.parseapp.com/jsonData/images/rings.jpg",
+      "files": [
+        {
+          "type": "pdf",
+          "url": "21http://...."
+        },
+   	    {
+          "type": "epub",
+          "url": "22http://...."
+        }
+      ]
+    },
+    {
+      "title": "3название",
+      "аuthor": "3автор",
+      "anons": "3текст анонса книги",
+      "picture": "http://jsonparsing.parseapp.com/jsonData/images/life.jpg",
+      "files": [
+        {
+          "type": "pdf",
+          "url": "31http://...."
+        },
+   	    {
+          "type": "epub",
+          "url": "32http://...."
+        }
+      ]
+    }
+  ]
+}
