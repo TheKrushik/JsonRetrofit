@@ -54,7 +54,7 @@ public class ModelsListFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id) {
-            case R.id.refresh:
+            case R.id.refreshVideo:
                 Log.d(TAG, "refresh clicked");
                 RetrofitSingleton.resetModelsObservable();
                 showLoadingIndicator(true);
@@ -80,10 +80,10 @@ public class ModelsListFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(new ModelsListRecyclerAdapter(models));
 
-        if (models.size() == 0 || isLoading) {
-            showLoadingIndicator(true);
-            getModelsList();
-        }
+//        if (models.size() == 0 || isLoading) {
+//            showLoadingIndicator(true);
+//            getModelsList();
+//        }
 
         return v;
     }
