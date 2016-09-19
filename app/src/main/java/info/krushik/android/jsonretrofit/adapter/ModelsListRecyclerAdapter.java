@@ -31,6 +31,10 @@ public class ModelsListRecyclerAdapter extends RecyclerView.Adapter<RecyclerView
 
         holderHotel.title.setText(modelVideo.getTitle());
         holderHotel.picture.setText(modelVideo.getPicture());
+        holderHotel.desc.setText(modelVideo.getDesc());
+        holderHotel.length.setText(modelVideo.getLength());
+        holderHotel.dt.setText(modelVideo.getDt());
+        holderHotel.video.setText(modelVideo.getVideo());
     }
 
     @Override
@@ -39,12 +43,16 @@ public class ModelsListRecyclerAdapter extends RecyclerView.Adapter<RecyclerView
     }
 
     public static class ViewHolderHotel extends RecyclerView.ViewHolder {
-        public TextView title, picture;
+        public TextView title, picture, desc, length, dt, video;
 
         public ViewHolderHotel(View v) {
             super(v);
             title = (TextView) v.findViewById(R.id.title);
             picture = (TextView) v.findViewById(R.id.picture);
+            desc = (TextView) v.findViewById(R.id.desc);
+            length = (TextView) v.findViewById(R.id.length);
+            dt = (TextView) v.findViewById(R.id.dt);
+            video = (TextView) v.findViewById(R.id.video);
         }
     }
 }
