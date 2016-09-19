@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import info.krushik.android.jsonretrofit.Const;
 import info.krushik.android.jsonretrofit.R;
 import info.krushik.android.jsonretrofit.adapter.ModelsListRecyclerAdapter;
-import info.krushik.android.jsonretrofit.model.Model;
+import info.krushik.android.jsonretrofit.model.ModelVideo;
 import info.krushik.android.jsonretrofit.retrofit.RetrofitSingleton;
 import rx.Subscriber;
 import rx.Subscription;
@@ -35,7 +35,7 @@ public class ModelsListFragment extends Fragment {
     private Subscription subscription;
     private ImageView loadingIndicator;
     private RecyclerView recyclerView;
-    private ArrayList<Model> models = new ArrayList<>();
+    private ArrayList<ModelVideo> modelVideos = new ArrayList<>();
     private boolean isLoading;
 
     @Override
@@ -70,7 +70,7 @@ public class ModelsListFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_models_list, container, false);
 
         if (savedInstanceState != null) {
-            models = savedInstanceState.getParcelableArrayList(Const.KEY_MODELS);
+            modelVideos = savedInstanceState.getParcelableArrayList(Const.KEY_MODELS);
             isLoading = savedInstanceState.getBoolean(Const.KEY_IS_LOADING);
         }
 
@@ -78,9 +78,9 @@ public class ModelsListFragment extends Fragment {
         loadingIndicator = (ImageView) v.findViewById(R.id.loading_indicator);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(new ModelsListRecyclerAdapter(models));
+        recyclerView.setAdapter(new ModelsListRecyclerAdapter(modelVideos));
 
-//        if (models.size() == 0 || isLoading) {
+//        if (modelVideos.size() == 0 || isLoading) {
 //            showLoadingIndicator(true);
 //            getModelsList();
 //        }
@@ -112,7 +112,7 @@ public class ModelsListFragment extends Fragment {
         subscription = RetrofitSingleton.getModelsObservable().
                 subscribeOn(Schedulers.io()).
                 observeOn(AndroidSchedulers.mainThread()).
-                subscribe(new Subscriber<ArrayList<Model>>() {
+                subscribe(new Subscriber<ArrayList<ModelVideo>>() {
                     @Override
                     public void onCompleted() {
                         Log.d(TAG, "onCompleted");
@@ -138,17 +138,17 @@ public class ModelsListFragment extends Fragment {
                     }
 
                     @Override
-                    public void onNext(ArrayList<Model> newModels) {
-                        Log.d(TAG, "onNext: " + newModels.size());
-                        int prevSize = models.size();
+                    public void onNext(ArrayList<ModelVideo> newModelVideos) {
+                        Log.d(TAG, "onNext: " + newModelVideos.size());
+                        int prevSize = modelVideos.size();
                         isLoading = false;
                         if (isAdded()) {
                             recyclerView.getAdapter().notifyItemRangeRemoved(0, prevSize);
                         }
-                        models.clear();
-                        models.addAll(newModels);
+                        modelVideos.clear();
+                        modelVideos.addAll(newModelVideos);
                         if (isAdded()) {
-                            recyclerView.getAdapter().notifyItemRangeInserted(0, models.size());
+                            recyclerView.getAdapter().notifyItemRangeInserted(0, modelVideos.size());
                             showLoadingIndicator(false);
                         }
                     }
@@ -158,7 +158,7 @@ public class ModelsListFragment extends Fragment {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putParcelableArrayList(Const.KEY_MODELS, models);
+        outState.putParcelableArrayList(Const.KEY_MODELS, modelVideos);
         outState.putBoolean(Const.KEY_IS_LOADING, isLoading);
     }
 

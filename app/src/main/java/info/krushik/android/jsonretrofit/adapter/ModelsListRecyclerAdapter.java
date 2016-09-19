@@ -9,13 +9,13 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import info.krushik.android.jsonretrofit.R;
-import info.krushik.android.jsonretrofit.model.Model;
+import info.krushik.android.jsonretrofit.model.ModelVideo;
 
 public class ModelsListRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private ArrayList<Model> models;
+    private ArrayList<ModelVideo> modelVideos;
 
-    public ModelsListRecyclerAdapter(ArrayList<Model> models) {
-        this.models = models;
+    public ModelsListRecyclerAdapter(ArrayList<ModelVideo> modelVideos) {
+        this.modelVideos = modelVideos;
     }
 
     @Override
@@ -27,15 +27,15 @@ public class ModelsListRecyclerAdapter extends RecyclerView.Adapter<RecyclerView
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ViewHolderHotel holderHotel = (ViewHolderHotel) holder;
-        Model model = models.get(position);
+        ModelVideo modelVideo = modelVideos.get(position);
 
-        holderHotel.title.setText(model.getTitle());
-        holderHotel.text.setText(model.getText());
+        holderHotel.title.setText(modelVideo.getTitle());
+//        holderHotel.text.setText(modelVideo.getPicture());
     }
 
     @Override
     public int getItemCount() {
-        return models.size();
+        return modelVideos.size();
     }
 
     public static class ViewHolderHotel extends RecyclerView.ViewHolder {
@@ -44,7 +44,7 @@ public class ModelsListRecyclerAdapter extends RecyclerView.Adapter<RecyclerView
         public ViewHolderHotel(View v) {
             super(v);
             title = (TextView) v.findViewById(R.id.title);
-            text = (TextView) v.findViewById(R.id.text);
+//            text = (TextView) v.findViewById(R.id.text);
         }
     }
 }

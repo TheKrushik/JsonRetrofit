@@ -7,11 +7,11 @@ import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 
+import info.krushik.android.jsonretrofit.model.ModelVideo;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import info.krushik.android.jsonretrofit.Const;
-import info.krushik.android.jsonretrofit.model.Model;
 import rx.Observable;
 import rx.Subscriber;
 import rx.Subscription;
@@ -21,8 +21,8 @@ import rx.subjects.BehaviorSubject;
 public class RetrofitSingleton {
     private static final String TAG = RetrofitSingleton.class.getSimpleName();
 
-    private static Observable<ArrayList<Model>> observableRetrofit;
-    private static BehaviorSubject<ArrayList<Model>> observableModelsList;
+    private static Observable<ArrayList<ModelVideo>> observableRetrofit;
+    private static BehaviorSubject<ArrayList<ModelVideo>> observableModelsList;
     private static Subscription subscription;
 
     private RetrofitSingleton() {
@@ -52,7 +52,7 @@ public class RetrofitSingleton {
         if (subscription != null && !subscription.isUnsubscribed()) {
             subscription.unsubscribe();
         }
-        subscription = observableRetrofit.subscribe(new Subscriber<ArrayList<Model>>() {
+        subscription = observableRetrofit.subscribe(new Subscriber<ArrayList<ModelVideo>>() {
             @Override
             public void onCompleted() {
                 //do nothing
@@ -64,14 +64,14 @@ public class RetrofitSingleton {
             }
 
             @Override
-            public void onNext(ArrayList<Model> models) {
-                observableModelsList.onNext(models);
+            public void onNext(ArrayList<ModelVideo> modelVideos) {
+                observableModelsList.onNext(modelVideos);
             }
         });
     }
 
 
-    public static Observable<ArrayList<Model>> getModelsObservable() {
+    public static Observable<ArrayList<ModelVideo>> getModelsObservable() {
         if (observableModelsList == null) {
             resetModelsObservable();
         }
