@@ -9,13 +9,13 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import info.krushik.android.jsonretrofit.R;
-import info.krushik.android.jsonretrofit.model.ModelVideo;
+import info.krushik.android.jsonretrofit.model.Video;
 
 public class ModelsListRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private ArrayList<ModelVideo> modelVideos;
+    private ArrayList<Video> videos;
 
-    public ModelsListRecyclerAdapter(ArrayList<ModelVideo> modelVideos) {
-        this.modelVideos = modelVideos;
+    public ModelsListRecyclerAdapter(ArrayList<Video> videos) {
+        this.videos = videos;
     }
 
     @Override
@@ -27,19 +27,19 @@ public class ModelsListRecyclerAdapter extends RecyclerView.Adapter<RecyclerView
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ViewHolderHotel holderHotel = (ViewHolderHotel) holder;
-        ModelVideo modelVideo = modelVideos.get(position);
+        Video video = videos.get(position);
 
-        holderHotel.title.setText(modelVideo.getTitle());
-        holderHotel.picture.setText(modelVideo.getPicture());
-        holderHotel.desc.setText(modelVideo.getDesc());
-        holderHotel.length.setText(modelVideo.getLength());
-        holderHotel.dt.setText(modelVideo.getDt());
-        holderHotel.video.setText(modelVideo.getVideo());
+        holderHotel.title.setText(video.getTitle());
+        holderHotel.picture.setText(video.getPicture());
+        holderHotel.desc.setText(video.getDesc());
+        holderHotel.length.setText(video.getLength());
+        holderHotel.dt.setText(video.getDt());
+        holderHotel.video.setText(video.getVideo());
     }
 
     @Override
     public int getItemCount() {
-        return modelVideos.size();
+        return videos.size();
     }
 
     public static class ViewHolderHotel extends RecyclerView.ViewHolder {

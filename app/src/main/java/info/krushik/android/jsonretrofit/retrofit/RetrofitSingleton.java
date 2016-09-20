@@ -7,7 +7,7 @@ import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 
-import info.krushik.android.jsonretrofit.model.ModelVideo;
+import info.krushik.android.jsonretrofit.model.Video;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -21,8 +21,8 @@ import rx.subjects.BehaviorSubject;
 public class RetrofitSingleton {
     private static final String TAG = RetrofitSingleton.class.getSimpleName();
 
-    private static Observable<ArrayList<ModelVideo>> observableRetrofit;
-    private static BehaviorSubject<ArrayList<ModelVideo>> observableModelsList;
+    private static Observable<ArrayList<Video>> observableRetrofit;
+    private static BehaviorSubject<ArrayList<Video>> observableModelsList;
     private static Subscription subscription;
 
     private RetrofitSingleton() {
@@ -52,7 +52,7 @@ public class RetrofitSingleton {
         if (subscription != null && !subscription.isUnsubscribed()) {
             subscription.unsubscribe();
         }
-        subscription = observableRetrofit.subscribe(new Subscriber<ArrayList<ModelVideo>>() {
+        subscription = observableRetrofit.subscribe(new Subscriber<ArrayList<Video>>() {
             @Override
             public void onCompleted() {
                 //do nothing
@@ -64,14 +64,14 @@ public class RetrofitSingleton {
             }
 
             @Override
-            public void onNext(ArrayList<ModelVideo> modelVideos) {
-                observableModelsList.onNext(modelVideos);
+            public void onNext(ArrayList<Video> videos) {
+                observableModelsList.onNext(videos);
             }
         });
     }
 
 
-    public static Observable<ArrayList<ModelVideo>> getModelsObservable() {
+    public static Observable<ArrayList<Video>> getModelsObservable() {
         if (observableModelsList == null) {
             resetModelsObservable();
         }

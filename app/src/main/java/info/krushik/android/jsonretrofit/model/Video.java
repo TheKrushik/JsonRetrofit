@@ -5,19 +5,19 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
-public class ModelVideo implements Parcelable {
+public class Video implements Parcelable {
     /**
      * Parcel implementation
      */
-    public static final Creator<ModelVideo> CREATOR = new Creator<ModelVideo>() {
+    public static final Creator<Video> CREATOR = new Creator<Video>() {
         @Override
-        public ModelVideo createFromParcel(Parcel source) {
-            return new ModelVideo(source);
+        public Video createFromParcel(Parcel source) {
+            return new Video(source);
         }
 
         @Override
-        public ModelVideo[] newArray(int size) {
-            return new ModelVideo[size];
+        public Video[] newArray(int size) {
+            return new Video[size];
         }
     };
 
@@ -42,7 +42,7 @@ public class ModelVideo implements Parcelable {
     /**
      * Parcel implementation
      */
-    private ModelVideo(Parcel in) {
+    private Video(Parcel in) {
         this.title = in.readString();
         this.picture = in.readString();
         this.desc = in.readString();

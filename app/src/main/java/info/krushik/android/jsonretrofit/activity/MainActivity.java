@@ -8,7 +8,10 @@ import android.support.v7.widget.Toolbar;
 import info.krushik.android.jsonretrofit.R;
 import info.krushik.android.jsonretrofit.fragment.ModelsListFragment;
 
+
 public class MainActivity extends AppCompatActivity {
+
+
     private Toolbar toolbar;
 
     @Override
@@ -27,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
                     beginTransaction().add(R.id.container, fragmentHotelsList)
                     .commit();
         }
+
+
+
     }
 
     private void initViews() {
