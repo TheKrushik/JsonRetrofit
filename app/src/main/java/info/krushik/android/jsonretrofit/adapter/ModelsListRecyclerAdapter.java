@@ -21,20 +21,20 @@ public class ModelsListRecyclerAdapter extends RecyclerView.Adapter<RecyclerView
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_model, parent, false);
-        return new ViewHolderHotel(v);
+        return new ViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        ViewHolderHotel holderHotel = (ViewHolderHotel) holder;
+        ViewHolder view = (ViewHolder) holder;
         Video video = videos.get(position);
 
-        holderHotel.title.setText(video.getTitle());
-        holderHotel.picture.setText(video.getPicture());
-        holderHotel.desc.setText(video.getDesc());
-        holderHotel.length.setText(video.getLength());
-        holderHotel.dt.setText(video.getDt());
-        holderHotel.video.setText(video.getVideo());
+        view.title.setText(video.getTitle());
+        view.picture.setText(video.getPicture());
+        view.desc.setText(video.getDesc());
+        view.length.setText(video.getLength());
+        view.dt.setText(video.getDt());
+        view.video.setText(video.getVideo());
     }
 
     @Override
@@ -42,10 +42,10 @@ public class ModelsListRecyclerAdapter extends RecyclerView.Adapter<RecyclerView
         return videos.size();
     }
 
-    public static class ViewHolderHotel extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView title, picture, desc, length, dt, video;
 
-        public ViewHolderHotel(View v) {
+        public ViewHolder(View v) {
             super(v);
             title = (TextView) v.findViewById(R.id.title);
             picture = (TextView) v.findViewById(R.id.picture);
