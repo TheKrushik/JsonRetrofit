@@ -30,11 +30,11 @@ public class ModelsListRecyclerAdapter extends RecyclerView.Adapter<RecyclerView
         ModelVideo modelVideo = modelVideos.get(position);
 
         holderHotel.title.setText(modelVideo.getTitle());
-        holderHotel.picture.setText(modelVideo.getPicture());
-        holderHotel.desc.setText(modelVideo.getDesc());
-        holderHotel.length.setText(modelVideo.getLength());
-        holderHotel.dt.setText(modelVideo.getDt());
-        holderHotel.video.setText(modelVideo.getVideo());
+//        holderHotel.picture.setText(modelVideo.getPicture());
+//        holderHotel.desc.setText(modelVideo.getDesc());
+//        holderHotel.length.setText(modelVideo.getLength());
+//        holderHotel.dt.setText(modelVideo.getDt());
+//        holderHotel.video.setText(modelVideo.getVideo());
     }
 
     @Override

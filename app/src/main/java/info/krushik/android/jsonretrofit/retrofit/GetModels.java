@@ -7,8 +7,9 @@ import info.krushik.android.jsonretrofit.model.ModelVideo;
 import rx.Observable;
 
 public interface GetModels {
-    @GET("get/855616ae65fe020259dbf39065aa6f72/272293084/Video.txt")
+//    @GET("get/855616ae65fe020259dbf39065aa6f72/272293084/Video.txt")
 //    @GET("TheKrushik/JsonRetrofit/master/Video.txt")
+    @GET("rx-retrofit-and-android-screen-orientation.php")
     Observable<ArrayList<ModelVideo>> getModelsList();
 
 
