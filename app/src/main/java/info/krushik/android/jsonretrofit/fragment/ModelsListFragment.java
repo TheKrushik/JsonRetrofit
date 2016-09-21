@@ -24,6 +24,7 @@ import info.krushik.android.jsonretrofit.Const;
 import info.krushik.android.jsonretrofit.R;
 import info.krushik.android.jsonretrofit.adapter.ModelsListRecyclerAdapter;
 import info.krushik.android.jsonretrofit.model.Video;
+import info.krushik.android.jsonretrofit.model.VideoAnswer;
 import info.krushik.android.jsonretrofit.retrofit.RetrofitSingleton;
 import rx.Subscriber;
 import rx.Subscription;
@@ -82,7 +83,7 @@ public class ModelsListFragment extends Fragment {
 
 //        if (videos.size() == 0 || isLoading) {
 //            showLoadingIndicator(true);
-//            getModelsList();
+//            getVideoList();
 //        }
 
         return v;
@@ -112,7 +113,7 @@ public class ModelsListFragment extends Fragment {
         subscription = RetrofitSingleton.getModelsObservable().
                 subscribeOn(Schedulers.io()).
                 observeOn(AndroidSchedulers.mainThread()).
-                subscribe(new Subscriber<ArrayList<Video>>() {
+                subscribe(new Subscriber<VideoAnswer>() {
                     @Override
                     public void onCompleted() {
                         Log.d(TAG, "onCompleted");
@@ -138,8 +139,8 @@ public class ModelsListFragment extends Fragment {
                     }
 
                     @Override
-                    public void onNext(ArrayList<Video> newVideos) {
-                        Log.d(TAG, "onNext: " + newVideos.size());
+                    public void onNext(VideoAnswer newVideos) {
+                        Log.d(TAG, "onNext: " + videos.size());
                         int prevSize = videos.size();
                         isLoading = false;
                         if (isAdded()) {

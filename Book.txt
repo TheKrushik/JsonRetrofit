@@ -2,7 +2,7 @@
   "list":[
     {
       "title": "1название",
-      "аuthor": "1автор",
+      "author": "1автор",
       "anons": "1текст анонса книги",
       "picture": "http://jsonparsing.parseapp.com/jsonData/images/batman.jpg",
       "files": [
@@ -18,7 +18,7 @@
     },
     {
       "title": "2название",
-      "аuthor": "2автор",
+      "author": "2автор",
       "anons": "2текст анонса книги",
       "picture": "http://jsonparsing.parseapp.com/jsonData/images/rings.jpg",
       "files": [
@@ -34,7 +34,7 @@
     },
     {
       "title": "3название",
-      "аuthor": "3автор",
+      "author": "3автор",
       "anons": "3текст анонса книги",
       "picture": "http://jsonparsing.parseapp.com/jsonData/images/life.jpg",
       "files": [
